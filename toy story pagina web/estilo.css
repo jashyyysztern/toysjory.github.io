@@ -1,0 +1,22 @@
+
+<style>
+body {
+    background-color: #fff;
+    color: #000;
+}
+
+.jumbotron {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+}
+
+.btn-outline-dark {
+    border-width: 2px;
+}
+
+.main-image {
+    filter: grayscale(100%);
+    max-width: 100%; 
+}
+</style>
+</head>

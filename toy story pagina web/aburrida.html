@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Ya falta poco!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .countdown {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Hola</h1>
+        <div class="countdown" id="countdown"></div>
+        <p>¡Ya falta poco, te amo!</p>
+    </div>
+
+    <script>
+        function countdown(dateEnd) {
+            let timer, days, hours, minutes, seconds;
+
+            dateEnd = new Date(dateEnd).getTime();
+            if (isNaN(dateEnd)) {
+                return;
+            }
+
+            timer = setInterval(calculate, 1000);
+
+            function calculate() {
+                let dateStart = new Date().getTime(),
+                    timeRemaining = parseInt((dateEnd - dateStart) / 1000);
+
+                if (timeRemaining >= 0) {
+                    days = parseInt(timeRemaining / 86400);
+                    timeRemaining = (timeRemaining % 86400);
+                    hours = parseInt(timeRemaining / 3600);
+                    timeRemaining = (timeRemaining % 3600);
+                    minutes = parseInt(timeRemaining / 60);
+                    timeRemaining = (timeRemaining % 60);
+                    seconds = parseInt(timeRemaining);
+
+                    document.getElementById("countdown").innerHTML = `Faltan ${days} días, ${hours} horas, ${minutes} minutos y ${seconds} segundos`;
+                } else {
+                    return;
+                }
+            }
+        }
+
+        // Configura la cuenta regresiva para la fecha deseada
+        countdown('29/07/2023 00:00:00');
+    </script>
+
+</body>
+
+</html>
